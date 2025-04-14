@@ -1,28 +1,28 @@
-from .router.feedback import router
+from .router import router
 from .schemas.feedback_component import FeedbackFormComponent
 from services.component_registry import ComponentRegistry
 from services.ui.plugin_settings import create_plugin_setting, delete_plugin_setting_by_title
-from schemas.plugin_setting import PluginSetting, BooleanInput
+from schemas.plugin_setting import PluginSetting, SelectorInput
 import logging
 
 logger = logging.getLogger("coffeebreak.plugins.feedback")
 
 PLUGIN_TITLE = "Feedback Form"
-PLUGIN_DESCRIPTION = "This plugin allows collecting participant feedback, with a rating from 1 to 5 stars and optional comments."
+PLUGIN_DESCRIPTION = "This plugin allows participants to submit feedback with a rating and optional comments."
 
-# Optional configurable inputs
+# Options for the plugin settings
 plugin_inputs = [
-    BooleanInput(
-        type="boolean",
+    SelectorInput(
+        type="selector",
         title="Allow Comments",
-        description="Allow users to add a textual comment to their feedback",
-        default=True
+        description="Allow users to add a comment to their feedback",
+        options=["Yes", "No"]
     ),
-    BooleanInput(
-        type="boolean",
+    SelectorInput(
+        type="selector",
         title="Require Rating",
-        description="Make it mandatory to select a rating between 1 and 5",
-        default=True
+        description="Require users to submit a rating (1 to 5)",
+        options=["Yes", "No"]
     )
 ]
 
