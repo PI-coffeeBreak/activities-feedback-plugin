@@ -8,16 +8,22 @@ from ..schemas.feedback import FeedbackCreate, FeedbackResponse
 from utils.api import Router
 from services.ui.plugin_settings import get_plugin_setting_by_title
 from typing import List
+from models.activity import Activity
 
 router = Router()
 
-@router.post("/", response_model=FeedbackResponse)
+@router.post("/{activity_id}", response_model=FeedbackResponse)
 async def submit_feedback(
+    activity_id: int,
     data: FeedbackCreate,
     db: Session = Depends(get_db),
     user: dict = Depends(get_current_user(force_auth=True))
 ):
     user_id = user.get("sub") if user else None
+
+    activity = db.query(Activity).filter(Activity.id == activity_id).first()
+    if activity is None:
+        raise HTTPException(status_code=404, detail="Activity not found")
 
     settings = await get_plugin_setting_by_title("Feedback Form")
     inputs = {input.title: input for input in settings.inputs}
@@ -32,7 +38,7 @@ async def submit_feedback(
         data.comment = None
 
     feedback = FeedbackModel(
-        activity_id=data.activity_id,
+        activity_id=activity_id,
         rating=data.rating,
         comment=data.comment,
         user_id=user_id
