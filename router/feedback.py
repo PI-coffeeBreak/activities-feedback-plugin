@@ -6,6 +6,7 @@ from dependencies.auth import get_current_user
 from ..models.feedback import Feedback as FeedbackModel
 from ..schemas.feedback import FeedbackCreate, FeedbackResponse
 from utils.api import Router
+from typing import List
 
 router = Router()
 
@@ -31,7 +32,7 @@ async def submit_feedback(
         raise HTTPException(status_code=400, detail="Rating is required and must be between 1 and 5.")
 
     if not allow_comments:
-        data.comment = None  # Ignora comentário se não for permitido
+        data.comment = None
 
     feedback = FeedbackModel(
         activity_id=data.activity_id,
