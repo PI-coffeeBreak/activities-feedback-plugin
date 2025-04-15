@@ -5,7 +5,7 @@ from services.ui.plugin_settings import create_plugin_setting, delete_plugin_set
 from schemas.plugin_setting import PluginSetting, SelectorInput
 import logging
 
-logger = logging.getLogger("coffeebreak.plugins.feedback")
+logger = logging.getLogger("coffeebreak.activity-feedback")
 
 PLUGIN_TITLE = "Feedback Form"
 PLUGIN_DESCRIPTION = "This plugin allows participants to submit feedback with a rating and optional comments."
