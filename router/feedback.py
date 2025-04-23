@@ -4,7 +4,7 @@ from services.ui.plugin_settings import get_plugin_setting_by_title
 from dependencies.database import get_db
 from dependencies.auth import get_current_user
 from ..models.feedback import Feedback as FeedbackModel
-from ..schemas.feedback import FeedbackCreate, FeedbackResponse, FeedbackDeleteResponse
+from ..schemas.feedback import FeedbackCreate, FeedbackResponse
 from utils.api import Router
 from typing import List
 from models.activity import Activity
