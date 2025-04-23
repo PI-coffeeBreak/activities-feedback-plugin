@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 from typing import Optional
 
 class FeedbackCreate(BaseModel):
@@ -8,9 +8,19 @@ class FeedbackCreate(BaseModel):
 class FeedbackResponse(BaseModel):
     id: int
     activity_id: int
-    rating: int
+    rating: Optional[int] = None
     comment: Optional[str] = None
     user_id: str
+
+    class Config:
+        from_attributes = True
+
+class FeedbackDeleteResponse(BaseModel):
+    id: int
+    activity_id: int
+    user_id: str
+    rating: Optional[int] = None
+    comment: Optional[str] = None
 
     class Config:
         from_attributes = True
