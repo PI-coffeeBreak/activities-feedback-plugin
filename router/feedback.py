@@ -94,7 +94,6 @@ def update_my_feedback_for_activity(
     if not feedback:
         raise HTTPException(status_code=404, detail="Feedback not found to update")
 
-    # Atualiza os campos permitidos
     feedback.rating = data.rating
     feedback.comment = data.comment
 
