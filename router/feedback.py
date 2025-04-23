@@ -36,7 +36,7 @@ async def submit_feedback(
 
     require_rating = inputs.get("Require Rating")
     if require_rating and require_rating.options and require_rating.options[0] == "Yes":
-        if not (0 <= data.rating <= 5):
+        if not (1 <= data.rating <= 5):
             raise HTTPException(status_code=400, detail="Rating is required and must be between 1 and 5.")
 
     allow_comments = inputs.get("Allow Comments")
