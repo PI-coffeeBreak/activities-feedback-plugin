@@ -31,7 +31,7 @@ async def submit_feedback(
     if existing_feedback:
         raise HTTPException(status_code=400, detail="User has already submitted feedback for this activity")
 
-    settings = await get_plugin_setting_by_title("Feedback Form")
+    settings = await get_plugin_setting_by_title("activities-feedback-plugin")
     inputs = {input.title: input for input in settings.inputs}
 
     require_rating = inputs.get("Require Rating")

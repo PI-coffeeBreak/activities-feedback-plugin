@@ -7,7 +7,7 @@ import logging
 
 logger = logging.getLogger("coffeebreak.activity-feedback")
 
-PLUGIN_TITLE = "Feedback Form"
+PLUGIN_TITLE = "activities-feedback-plugin"
 PLUGIN_DESCRIPTION = "This plugin allows participants to submit feedback with a rating and optional comments."
 
 # Options for the plugin settings
@@ -37,7 +37,7 @@ async def register_plugin():
     )
     await create_plugin_setting(setting)
 
-    return router
+    logger.debug("Feedback plugin registered.")
 
 async def unregister_plugin():
     ComponentRegistry.unregister_component("FeedbackFormComponent")
