@@ -10,4 +10,4 @@ class FeedbackFormComponent(BaseComponentSchema):
     submit_button: Button = Field(default=None, description="Submit button")
     rating_scale: int = Field(default=5, description="Rating scale")
     show_comment_box: bool = Field(default=True, description="Show comment box")
-    require_auth: bool = Field(default=True, description="Require authentication")
+    require_auth: bool = Field(default=False, description="Require authentication")
