@@ -40,13 +40,13 @@ class FeedbackService:
         settings = await get_plugin_setting_by_title("activities-feedback-plugin")
         inputs = {input.title: input for input in settings.inputs}
 
-        if inputs.get("Require Rating") and inputs["Require Rating"].options[0] == "Yes":
+        if inputs.get("Require Rating") and inputs["Require Rating"].default:
             if not (1 <= data.rating <= 5):
                 raise HTTPException(status_code=400, detail="Rating is required and must be between 1 and 5.")
 
-        if inputs.get("Allow Comments") and inputs["Allow Comments"].options[0] == "No":
+        if inputs.get("Allow Comments") and not inputs["Allow Comments"].default:
             data.comment = None
-
+            
         feedback = FeedbackModel(activity_id=activity_id, rating=data.rating, comment=data.comment, user_id=user_id)
         self.db.add(feedback)
         self.db.commit()
