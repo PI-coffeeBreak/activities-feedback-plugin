@@ -17,7 +17,7 @@ async def submit_feedback(activity_id: int, data: FeedbackCreate, db: Session = 
 def list_feedback(db: Session = Depends(get_db)):
     return FeedbackService(db).get_all()
 
-@router.get("/{activity_id}/all", response_model=List[FeedbackResponse])
+@router.get("/{activity_id}/all/", response_model=List[FeedbackResponse])
 def get_feedbacks_for_activity(activity_id: int, db: Session = Depends(get_db)):
     return FeedbackService(db).get_by_activity(activity_id)
 
