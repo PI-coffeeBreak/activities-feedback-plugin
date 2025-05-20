@@ -7,5 +7,6 @@ def get_user_id(user: dict) -> str:
 
 def ensure_activity_has_ended(activity: Activity):
     end_time = activity.date + timedelta(minutes=activity.duration)
-    if datetime.utcnow() < end_time:
-        raise HTTPException(status_code=400, detail="Feedback can only be submitted after the activity has ended.")
+    feedback_allowed_time = end_time - timedelta(minutes=5)
+    if datetime.utcnow() < feedback_allowed_time:
+        raise HTTPException(status_code=400, detail="Feedback can only be submitted in the last 5 minutes of the activity or after it has ended.")
