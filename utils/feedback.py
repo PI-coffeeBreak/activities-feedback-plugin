@@ -1,6 +1,6 @@
 from fastapi import HTTPException
 from datetime import datetime, timedelta
-from coffeebreak.models.activity import Activity
+from coffeebreak.models import ActivityModel as Activity
 
 def get_user_id(user: dict) -> str:
     return user.get("sub") if user else user.get("anonymous_id")

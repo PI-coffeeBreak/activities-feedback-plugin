@@ -1,7 +1,7 @@
 from pydantic import Field
-from coffeebreak.schemas.ui.page import BaseComponentSchema
-from coffeebreak.schemas.ui.components.title import Title
-from coffeebreak.schemas.ui.components.text import Text
+from coffeebreak.schemas import BaseComponent as BaseComponentSchema
+from coffeebreak.schemas import Title
+from coffeebreak.schemas import Text
 from coffeebreak.schemas.ui.components.button import Button
 
 class FeedbackFormComponent(BaseComponentSchema):

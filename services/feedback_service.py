@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from fastapi import HTTPException
 from typing import List, Optional
 from datetime import datetime, timedelta
-from coffeebreak.models.activity import Activity
+from coffeebreak.models import ActivityModel as Activity
 from ..models.feedback import Feedback as FeedbackModel
 from ..schemas.feedback import FeedbackCreate
 from coffeebreak.services.ui.plugin_settings import get_plugin_setting_by_title

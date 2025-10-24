@@ -1,4 +1,4 @@
-from coffeebreak.utils.api import Router
+from coffeebreak import Router
 from .feedback import router as feedback_router
 
 router = Router()
