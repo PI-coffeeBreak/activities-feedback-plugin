@@ -1,8 +1,8 @@
 from .router import router
 from .schemas.feedback_component import FeedbackFormComponent
-from services.component_registry import ComponentRegistry
-from services.ui.plugin_settings import create_plugin_setting, delete_plugin_setting_by_title, generate_inputs_from_settings
-from schemas.plugin_setting import PluginSetting
+from coffeebreak import ComponentRegistry
+from coffeebreak.services.ui.plugin_settings import create_plugin_setting, delete_plugin_setting_by_title, generate_inputs_from_settings
+from coffeebreak.schemas.plugin_setting import PluginSetting
 from pydantic import BaseModel, Field
 import logging
 

@@ -1,8 +1,8 @@
 from pydantic import Field
-from schemas.ui.page import BaseComponentSchema
-from schemas.ui.components.title import Title
-from schemas.ui.components.text import Text
-from schemas.ui.components.button import Button
+from coffeebreak.schemas.ui.page import BaseComponentSchema
+from coffeebreak.schemas.ui.components.title import Title
+from coffeebreak.schemas.ui.components.text import Text
+from coffeebreak.schemas.ui.components.button import Button
 
 class FeedbackFormComponent(BaseComponentSchema):
     name: str = Field("FeedbackFormComponent", title="Component Name", description="Name of the component.")
