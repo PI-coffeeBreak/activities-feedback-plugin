@@ -1,11 +1,11 @@
 from fastapi import Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
-from dependencies.database import get_db
-from dependencies.auth import get_current_user
+from coffeebreak.db import DB as get_db
+from coffeebreak.auth import get_current_user
 from ..schemas.feedback import FeedbackCreate, FeedbackResponse
 from ..services.feedback_service import FeedbackService
-from utils.api import Router
+from coffeebreak import Router
 
 router = Router()
 
