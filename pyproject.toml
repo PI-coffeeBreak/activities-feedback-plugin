@@ -1,0 +1,5 @@
+[tool.coffeebreak]
+identifier = "activities-feedback-plugin"
+name = "Activities Feedback Plugin"
+description = "This plugin allows participants to submit feedback with a rating and optional comments."
+config_page = true
