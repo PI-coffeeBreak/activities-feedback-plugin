@@ -1,0 +1,8 @@
+fileignoreconfig:
+- filename: .build/FeedbackFormComponent.mjs
+  checksum: 231ab2270be8dc1ed7972203ef2ef854a990e329817bb14245b0d8c78b34c95b
+- filename: admin/Page.jsx
+  checksum: 3066923eb7d7ce3e64a02f0dfe81890eabe5afd91b0b8fb318a8879278123f6c
+- filename: .build/pages/activities-feedback-plugin.mjs
+  checksum: 2938fc727435442fe715ff01583d6103d63e489446ba458317587e0c6562e99f
+version: ""
