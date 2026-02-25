@@ -2,4 +2,14 @@
 identifier = "activities-feedback-plugin"
 name = "Activities Feedback Plugin"
 description = "This plugin allows participants to submit feedback with a rating and optional comments."
+components_dir = "components"
 config_page = true
+
+[tool.coffeebreak.admin_page]
+file = "admin/Page.jsx"
+route_slug = "activities-feedback-plugin"
+export_name = "default"
+
+[[tool.coffeebreak.components]]
+name = "FeedbackFormComponent"
+file = "FeedbackFormComponent.jsx"
